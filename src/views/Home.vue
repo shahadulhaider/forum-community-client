@@ -6,7 +6,7 @@
       <hr class="my-4">
       <p></p>
       <p class="lead mt-4">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        <a class="btn btn-primary btn-lg" :href="getLoginURL" role="button">Login with Google</a>
       </p>
     </div>
   </div>
@@ -14,6 +14,16 @@
 
 <script>
 export default {
-  name: "home"
+  name: "home",
+  methods: {},
+  computed: {
+    getLoginURL() {
+      if (window.location.hostname === "localhost") {
+        return "http://localhost:3000/auth/google";
+      } else {
+        return "https://forum-community.herokuapp.com/auth/google";
+      }
+    }
+  }
 };
 </script>
